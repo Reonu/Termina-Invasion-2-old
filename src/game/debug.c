@@ -508,10 +508,10 @@ void try_print_debug_mario_level_info(void) {
  */
 void try_do_mario_debug_object_spawn(void) {
     UNUSED s32 unused;
-
-    if (sDebugPage == DEBUG_PAGE_STAGEINFO && gDebugInfo[DEBUG_PAGE_ENEMYINFO][7] == 1) {
+    struct Object *obj;
         if (gPlayer1Controller->buttonPressed & R_JPAD) {
-            spawn_object_relative(0, 0, 100, 200, gCurrentObject, MODEL_KOOPA_SHELL, bhvKoopaShell);
+            obj = spawn_object_relative(0, 0, 100, -50, gCurrentObject, MODEL_BLACK_BOBOMB, bhvBobomb);
+            obj->oBehParams2ndByte = 2;
         }
         if (gPlayer1Controller->buttonPressed & L_JPAD) {
             spawn_object_relative(0, 0, 100, 200, gCurrentObject, MODEL_BREAKABLE_BOX_SMALL,
@@ -521,7 +521,6 @@ void try_do_mario_debug_object_spawn(void) {
             spawn_object_relative(0, 0, 100, 200, gCurrentObject, MODEL_KOOPA_SHELL,
                                   bhvKoopaShellUnderwater);
         }
-    }
 }
 
 // TODO: figure out what this is

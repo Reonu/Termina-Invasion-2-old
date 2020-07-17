@@ -1,3 +1,4 @@
+#include "src/game/texscroll.h"
 #include <PR/ultratypes.h>
 
 #include "audio/external.h"
@@ -151,6 +152,7 @@ void bhv_act_selector_init(void) {
             spawn_object_abs_with_rot(gCurrentObject, 0, selectorModelIDs[i], bhvActSelectorStarType,
                                       75 + sVisibleStars * -75 + i * 152, 248, -300, 0, 0, 0);
         sStarSelectorModels[i]->oStarSelectorSize = 1.0f;
+        sStarSelectorModels[i]->oAnimState = i;
     }
 
     render_100_coin_star(stars);
@@ -435,7 +437,7 @@ s32 lvl_update_obj_and_load_act_button_actions(UNUSED s32 arg, UNUSED s32 unused
         }
     }
 
-    area_update_objects();
+    area_update_objects(); scroll_textures();
     sActSelectorMenuTimer++;
     return sLoadedActNum;
 }

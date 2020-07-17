@@ -204,6 +204,16 @@ extern const Gfx star_seg3_dl_0302B7B0[];
 extern const Gfx star_seg3_dl_0302B870[];
 extern const Gfx star_seg3_dl_0302B9C0[];
 extern const Gfx star_seg3_dl_0302BA18[];
+extern const Gfx star_seg3_dl_green[];
+extern const Gfx star_seg3_dl_green2[];
+extern const Gfx star_seg3_dl_red[];
+extern const Gfx star_seg3_dl_red2[];
+extern const Gfx star_seg3_dl_orange[];
+extern const Gfx star_seg3_dl_orange2[];
+extern const Gfx star_seg3_dl_yellow[];
+extern const Gfx star_seg3_dl_yellow2[];
+extern const Gfx star_seg3_dl_purple[];
+extern const Gfx star_seg3_dl_purple2[];
 
 // transparent_star
 extern const GeoLayout transparent_star_geo[];
