@@ -6,7 +6,7 @@ const GeoLayout hmc_area_1_geo[] = {
 		GEO_TRANSLATE_ROTATE(1, 0, 0, 0, 0, 0, 0),
 		GEO_OPEN_NODE(),
 			GEO_TRANSLATE_ROTATE_WITH_DL(1, 0, -8585, 0, 0, 0, 0, hmc_dl_Moon_mesh),
-			GEO_TRANSLATE_ROTATE_WITH_DL(1, 0, -8585, 0, 0, 0, 0, hmc_dl_Snowhead_mesh),
+			GEO_TRANSLATE_ROTATE_WITH_DL(1, 0, 0, 0, 0, 0, 0, hmc_dl_Snowhead_mesh),
 		GEO_CLOSE_NODE(),
 	GEO_CLOSE_NODE(),
 	GEO_RETURN(),

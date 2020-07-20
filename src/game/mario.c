@@ -1391,6 +1391,12 @@ void update_mario_inputs(struct MarioState *m) {
 
     debug_print_speed_action_normal(m);
 
+    //debug: moonjump
+    while (m->controller->buttonDown & L_TRIG) {
+        m->vel[1] = 25;
+        break;
+    }
+
     if (gCameraMovementFlags & CAM_MOVE_C_UP_MODE) {
         if (m->action & ACT_FLAG_ALLOW_FIRST_PERSON) {
             m->input |= INPUT_FIRST_PERSON;
