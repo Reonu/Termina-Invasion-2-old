@@ -512,6 +512,7 @@ void try_do_mario_debug_object_spawn(void) {
         if (gPlayer1Controller->buttonPressed & R_JPAD) {
             obj = spawn_object_relative(0, 0, 100, -50, gCurrentObject, MODEL_BLACK_BOBOMB, bhvBobomb);
             obj->oBehParams2ndByte = 2;
+            
         }
         if (gPlayer1Controller->buttonPressed & L_JPAD) {
             spawn_object_relative(0, 0, 100, 200, gCurrentObject, MODEL_BREAKABLE_BOX_SMALL,

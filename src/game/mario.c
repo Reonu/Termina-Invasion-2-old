@@ -1256,8 +1256,12 @@ void debug_print_speed_action_normal(struct MarioState *m) {
  * Update the button inputs for Mario.
  */
 void update_mario_button_inputs(struct MarioState *m) {
+    
     if (m->controller->buttonPressed & A_BUTTON) {
         m->input |= INPUT_A_PRESSED;
+    }
+    if (m->controller->buttonPressed & R_JPAD) {
+        play_sound(SOUND_MARIO_EEUH, m->marioObj->header.gfx.cameraToObject);
     }
 
     if (m->controller->buttonDown & A_BUTTON) {

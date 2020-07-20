@@ -16,11 +16,11 @@ GRUCODE ?= f3d_old
 # If COMPARE is 1, check the output sha1sum when building 'all'
 COMPARE ?= 1
 # If NON_MATCHING is 1, define the NON_MATCHING and AVOID_UB macros when building (recommended)
-NON_MATCHING ?= 1
+NON_MATCHING ?= 0
 # Build for the N64 (turn this off for ports)
 TARGET_N64 ?= 1
 # Compiler to use (ido or gcc)
-COMPILER ?= gcc
+COMPILER ?= ido
 
 ifeq ($(COMPILER),gcc)
   NON_MATCHING := 1
@@ -172,9 +172,9 @@ endif
 endif
 
 # Use a default opt flag for gcc
-
+ifeq ($(COMPILER),gcc)
   OPT_FLAGS := -O2
-
+endif
 
 # File dependencies and variables for specific files
 include Makefile.split
@@ -264,7 +264,7 @@ PYTHON    := python3
 
 # change the compiler to gcc, to use the default, install the gcc-mips-linux-gnu package
 ifeq ($(COMPILER),gcc)
-  CC        := $(CROSS)gcc-10
+  CC        := $(CROSS)gcc
 endif
 
 ifeq ($(TARGET_N64),1)
@@ -410,7 +410,6 @@ $(BUILD_DIR)/include/text_strings.h: $(BUILD_DIR)/include/text_menu_strings.h
 $(BUILD_DIR)/src/menu/file_select.o: $(BUILD_DIR)/include/text_strings.h
 $(BUILD_DIR)/src/menu/star_select.o: $(BUILD_DIR)/include/text_strings.h
 $(BUILD_DIR)/src/game/ingame_menu.o: $(BUILD_DIR)/include/text_strings.h
-$(BUILD_DIR)/src/game/mem_error_screen.o: $(BUILD_DIR)/include/text_strings.h
 
 ################################################################
 # TEXTURE GENERATION                                           #
