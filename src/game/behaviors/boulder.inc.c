@@ -22,7 +22,7 @@ void boulder_act_1(void) {
     if (o->oForwardVel > 70.0)
         o->oForwardVel = 70.0f;
 
-    if (o->oPosY < -1000.0f)
+    if (o->oPosY < -2500.0f)
         o->activeFlags = ACTIVE_FLAG_DEACTIVATED;
 }
 
