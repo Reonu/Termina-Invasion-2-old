@@ -48,7 +48,7 @@ const LevelScript level_hmc_entry[] = {
 		WARP_NODE(0x0A, LEVEL_WF, 0x01, 0x0A, WARP_NO_CHECKPOINT),
 		WARP_NODE(0xF3, LEVEL_HMC, 0x02, 0x0A, WARP_NO_CHECKPOINT),
 		OBJECT(MODEL_NONE, 3669, 306, -4, 0, 0, 0, 0x00000000, bhvBigBoulderGenerator),
-		OBJECT(MODEL_BREAKABLE_BOX, -1025, -1295, 642, 0, 0, 0, 0x00000000, bhvBreakableBox),
+		OBJECT(MODEL_BREAKABLE_BOX, -815, -201, -929, 0, 0, 0, 0x00000000, bhvBreakableBox),
 		OBJECT(MODEL_NONE, -2268, 2439, 2538, 0, 0, 0, 0x000A0000, bhvSpinAirborneWarp),
 		OBJECT(MODEL_NONE, 2132, -916, 13291, 0, 0, 0, 0x000B0000, bhvWarp),
 		TERRAIN(hmc_area_1_collision),
