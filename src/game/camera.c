@@ -1608,8 +1608,8 @@ s32 update_boss_fight_camera(struct Camera *c, Vec3f focus, Vec3f pos) {
         oo = floor->originOffset;
         pos[1] = 300.f - (nx * pos[0] + nz * pos[2] + oo) / ny;
         switch (gCurrLevelArea) {
-            case AREA_BOB:
-                pos[1] += 125.f;
+            //case AREA_BOB:
+                //pos[1] += 125.f;
                 //! fall through, makes the BoB boss fight camera move up twice as high as it should
             case AREA_WF:
                 pos[1] += 125.f;

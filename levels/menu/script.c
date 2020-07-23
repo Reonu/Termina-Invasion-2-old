@@ -53,7 +53,7 @@ const LevelScript level_main_menu_entry_1[] = {
     SLEEP(/*frames*/ 16),
     CLEAR_LEVEL(),
     SLEEP_BEFORE_EXIT(/*frames*/ 1),
-    SET_REG(/*value*/ LEVEL_HMC), //Termina Invasion: Starts in HMC
+    SET_REG(/*value*/ LEVEL_BOB), //Termina Invasion: Starts in HMC
     EXIT_AND_EXECUTE(/*seg*/ 0x15, _scriptsSegmentRomStart, _scriptsSegmentRomEnd, level_main_scripts_entry),
 };
 
