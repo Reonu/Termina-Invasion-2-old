@@ -38,8 +38,6 @@ s16 sSurfacePoolSize;
 
 u8 unused8038EEA8[0x30];
 
-u8 gSurfacePoolError;
-
 /**
  * Allocate the part of the surface node pool to contain a surface node.
  */
@@ -52,8 +50,7 @@ static struct SurfaceNode *alloc_surface_node(void) {
     //! A bounds check! If there's more surface nodes than 7000 allowed,
     //  we, um...
     // Perhaps originally just debug feedback?
-    if (gSurfaceNodesAllocated >= SURFACE_NODE_POOL_SIZE) {
-        gSurfacePoolError |= NOT_ENOUGH_ROOM_FOR_NODES;
+    if (gSurfaceNodesAllocated >= 7000) {
     }
 
     return node;
@@ -72,7 +69,6 @@ static struct Surface *alloc_surface(void) {
     //  we, um...
     // Perhaps originally just debug feedback?
     if (gSurfacesAllocated >= sSurfacePoolSize) {
-        gSurfacePoolError |= NOT_ENOUGH_ROOM_FOR_SURFACES;
     }
 
     surface->type = 0;
@@ -530,8 +526,8 @@ static void load_environmental_regions(s16 **data) {
  * Allocate some of the main pool for surfaces (2300 surf) and for surface nodes (7000 nodes).
  */
 void alloc_surface_pools(void) {
-    sSurfacePoolSize = SURFACE_POOL_SIZE;
-    sSurfaceNodePool = main_pool_alloc(SURFACE_NODE_POOL_SIZE * sizeof(struct SurfaceNode), MEMORY_POOL_LEFT);
+    sSurfacePoolSize = 6000;
+    sSurfaceNodePool = main_pool_alloc(16000 * sizeof(struct SurfaceNode), MEMORY_POOL_LEFT);
     sSurfacePool = main_pool_alloc(sSurfacePoolSize * sizeof(struct Surface), MEMORY_POOL_LEFT);
 
     gCCMEnteredSlide = 0;

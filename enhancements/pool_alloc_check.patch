@@ -1,0 +1,89 @@
+diff --git a/src/engine/surface_load.c b/src/engine/surface_load.c
+index 6936d8a..eaabe4a 100644
+--- a/src/engine/surface_load.c
++++ b/src/engine/surface_load.c
+@@ -37,6 +37,8 @@ s16 sSurfacePoolSize;
+ 
+ u8 unused8038EEA8[0x30];
+ 
++u8 gSurfacePoolError;
++
+ /**
+  * Allocate the part of the surface node pool to contain a surface node.
+  */
+@@ -49,7 +51,8 @@ static struct SurfaceNode *alloc_surface_node(void) {
+     //! A bounds check! If there's more surface nodes than 7000 allowed,
+     //  we, um...
+     // Perhaps originally just debug feedback?
+-    if (gSurfaceNodesAllocated >= 7000) {
++    if (gSurfaceNodesAllocated >= SURFACE_NODE_POOL_SIZE) {
++        gSurfacePoolError |= NOT_ENOUGH_ROOM_FOR_NODES;
+     }
+ 
+     return node;
+@@ -68,6 +71,7 @@ static struct Surface *alloc_surface(void) {
+     //  we, um...
+     // Perhaps originally just debug feedback?
+     if (gSurfacesAllocated >= sSurfacePoolSize) {
++        gSurfacePoolError |= NOT_ENOUGH_ROOM_FOR_SURFACES;
+     }
+ 
+     surface->type = 0;
+@@ -524,8 +528,8 @@ static void load_environmental_regions(s16 **data) {
+  * Allocate some of the main pool for surfaces (2300 surf) and for surface nodes (7000 nodes).
+  */
+ void alloc_surface_pools(void) {
+-    sSurfacePoolSize = 2300;
+-    sSurfaceNodePool = main_pool_alloc(7000 * sizeof(struct SurfaceNode), MEMORY_POOL_LEFT);
++    sSurfacePoolSize = SURFACE_POOL_SIZE;
++    sSurfaceNodePool = main_pool_alloc(SURFACE_NODE_POOL_SIZE * sizeof(struct SurfaceNode), MEMORY_POOL_LEFT);
+     sSurfacePool = main_pool_alloc(sSurfacePoolSize * sizeof(struct Surface), MEMORY_POOL_LEFT);
+ 
+     gCCMEnteredSlide = 0;
+diff --git a/src/engine/surface_load.h b/src/engine/surface_load.h
+index 5e77e92..957a361 100644
+--- a/src/engine/surface_load.h
++++ b/src/engine/surface_load.h
+@@ -5,6 +5,15 @@
+ 
+ #include "types.h"
+ 
++
++#define SURFACE_POOL_SIZE 2300
++#define SURFACE_NODE_POOL_SIZE 7000
++
++#define NOT_ENOUGH_ROOM_FOR_SURFACES (1 << 0)
++#define NOT_ENOUGH_ROOM_FOR_NODES    (1 << 1)
++
++extern u8 gSurfacePoolError;
++
+ struct SurfaceNode
+ {
+     struct SurfaceNode *next;
+diff --git a/src/game/hud.c b/src/game/hud.c
+index 8d4daa5..a190af0 100644
+--- a/src/game/hud.c
++++ b/src/game/hud.c
+@@ -13,6 +13,7 @@
+ #include "area.h"
+ #include "save_file.h"
+ #include "print.h"
++#include "engine/surface_load.h"
+ 
+ /* @file hud.c
+  * This file implements HUD rendering and power meter animations.
+@@ -475,5 +476,14 @@ void render_hud(void) {
+         if (hudDisplayFlags & HUD_DISPLAY_FLAG_TIMER) {
+             render_hud_timer();
+         }
++
++        if (gSurfacePoolError & NOT_ENOUGH_ROOM_FOR_SURFACES)
++        {
++            print_text(10, 40, "SURFACE POOL FULL");
++        }
++        if (gSurfacePoolError & NOT_ENOUGH_ROOM_FOR_NODES)
++        {
++            print_text(10, 60, "SURFACE NODE POOL FULL");
++        }
+     }
+ }

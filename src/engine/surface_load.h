@@ -5,6 +5,15 @@
 
 #include "types.h"
 
+
+#define SURFACE_POOL_SIZE 4600
+#define SURFACE_NODE_POOL_SIZE 14000
+
+#define NOT_ENOUGH_ROOM_FOR_SURFACES (1 << 0)
+#define NOT_ENOUGH_ROOM_FOR_NODES    (1 << 1)
+
+extern u8 gSurfacePoolError;
+
 struct SurfaceNode
 {
     struct SurfaceNode *next;
