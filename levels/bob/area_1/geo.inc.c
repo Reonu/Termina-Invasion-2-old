@@ -5,7 +5,7 @@ const GeoLayout bob_area_1_geo[] = {
 	GEO_OPEN_NODE(),
 		GEO_TRANSLATE_ROTATE(1, 0, 0, 0, 0, 0, 0),
 		GEO_OPEN_NODE(),
-			GEO_TRANSLATE_ROTATE_WITH_DL(1, -961, 651, 1247, 0, 0, 0, bob_dl_Termina_mesh),
+			GEO_TRANSLATE_ROTATE_WITH_DL(4, -961, 651, 1247, 0, 0, 0, bob_dl_Termina_mesh),
 			GEO_OPEN_NODE(),
 				GEO_TRANSLATE_ROTATE_WITH_DL(1, 0, 0, 0, 0, 0, 0, bob_dl_Background_mesh),
 				GEO_TRANSLATE_ROTATE_WITH_DL(1, 0, 0, 0, 0, 0, 0, bob_dl_Background_001_mesh),
@@ -115,6 +115,7 @@ const GeoLayout bob_area_1[] = {
 			GEO_CLOSE_NODE(),
 		GEO_CLOSE_NODE(),
 		GEO_DISPLAY_LIST(1, bob_dl_material_revert_render_settings),
+		GEO_DISPLAY_LIST(4, bob_dl_material_revert_render_settings),
 	GEO_CLOSE_NODE(),
 	GEO_END(),
 };
