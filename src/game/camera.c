@@ -6606,7 +6606,7 @@ s16 camera_course_processing(struct Camera *c) {
                 set_mode_if_not_set_by_surface(c, CAMERA_MODE_OUTWARD_RADIAL);
                 break;
 
-            case AREA_BOB:
+            /*case AREA_BOB:
                 if (set_mode_if_not_set_by_surface(c, CAMERA_MODE_NONE) == 0) {
                     if (sMarioGeometry.currFloorType == SURFACE_BOSS_FIGHT_CAMERA) {
                         set_camera_mode_boss_fight(c);
@@ -6619,7 +6619,7 @@ s16 camera_course_processing(struct Camera *c) {
                     }
                 }
                 break;
-
+*/
             case AREA_WDW_MAIN:
                 if (sMarioGeometry.currFloorType == SURFACE_INSTANT_WARP_1B) {
                     if (0) {
