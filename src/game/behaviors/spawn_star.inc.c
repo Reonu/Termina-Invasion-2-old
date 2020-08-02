@@ -25,7 +25,7 @@ void bhv_collect_star_init(void) {
     }
 
     obj_set_hitbox(o, &sCollectStarHitbox);
-    o->oAnimState = starId;
+    o->oAnimState = starId % 7;
 }
 
 void bhv_collect_star_loop(void) {
