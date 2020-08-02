@@ -18132,7 +18132,7 @@ Gfx mat_revert_hmc_dl_Material_018_1B46C8C_c_bmp_f3d_layer1[] = {
 
 Gfx mat_hmc_dl_Snow_layer1[] = {
 	gsDPPipeSync(),
-	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, 0, 0, 0, COMBINED, 0, 0, 0, ENVIRONMENT),
+	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, 0, 0, 0, COMBINED, 0, 0, 0, COMBINED),
 	gsDPSetFogColor(255, 255, 255, 255),
 	gsSPFogPosition(970, 1000),
 	gsSPSetGeometryMode(G_FOG),
