@@ -1716,7 +1716,6 @@ void func_sh_8025574C(void) {
  */
 s32 execute_mario_action(UNUSED struct Object *o) {
     s32 inLoop = TRUE;
-
     if (gMarioState->action) {
         gMarioState->marioObj->header.gfx.node.flags &= ~GRAPH_RENDER_INVISIBLE;
         mario_reset_bodystate(gMarioState);
@@ -1887,7 +1886,7 @@ void init_mario(void) {
 }
 
 void init_mario_from_save_file(void) {
-    save_file_set_coins();
+    save_file_get_coins();
     gMarioState->unk00 = 0;
     gMarioState->flags = 0;
     gMarioState->action = 0;

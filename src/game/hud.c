@@ -280,7 +280,7 @@ void render_hud_mario_lives(void) {
 void render_hud_coins(void) {
     print_text(168, HUD_TOP_Y, "+"); // 'Coin' glyph
     print_text(184, HUD_TOP_Y, "*"); // 'X' glyph
-    print_text_fmt_int(198, HUD_TOP_Y, "%d", gHudDisplay.coins);
+    print_text_fmt_int(198, HUD_TOP_Y, "%d", gMarioState->numGlobalCoins);
 }
 
 #ifdef VERSION_JP
