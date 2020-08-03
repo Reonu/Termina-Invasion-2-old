@@ -176,7 +176,7 @@ extern Vtx bob_dl_ClockTownWall_003_mesh_vtx_2[4];
 extern Gfx bob_dl_ClockTownWall_003_mesh_tri_2[];
 extern Vtx bob_dl_ClockTownWall_003_mesh_vtx_3[4];
 extern Gfx bob_dl_ClockTownWall_003_mesh_tri_3[];
-extern Vtx bob_dl_Fences_mesh_vtx_0[15];
+extern Vtx bob_dl_Fences_mesh_vtx_0[14];
 extern Gfx bob_dl_Fences_mesh_tri_0[];
 extern Vtx bob_dl_Fountain_mesh_vtx_0[14];
 extern Gfx bob_dl_Fountain_mesh_tri_0[];

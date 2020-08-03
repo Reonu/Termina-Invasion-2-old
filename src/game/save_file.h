@@ -26,7 +26,7 @@ struct SaveFile
     u8 capArea;
     Vec3s capPos;
 
-    u32 flags;
+    u64 flags;
 
     // Star flags for each course.
     // The most significant bit of the byte *following* each course is set if the
@@ -107,6 +107,7 @@ extern s8 gLevelToCourseNumTable[];
 #define SAVE_FLAG_CAP_ON_UKIKI           /* 0x040000 */ (1 << 18)
 #define SAVE_FLAG_CAP_ON_MR_BLIZZARD     /* 0x080000 */ (1 << 19)
 #define SAVE_FLAG_UNLOCKED_50_STAR_DOOR  /* 0x100000 */ (1 << 20)
+#define SAVE_FLAG_HAVE_SHELL             /* CBT      */ (1 << 21)
 
 // Variable for setting a warp checkpoint.
 

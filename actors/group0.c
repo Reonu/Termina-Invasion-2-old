@@ -25,3 +25,7 @@
 #include "white_particle_small/model.inc.c"
 
 #include "sparkle_animation/model.inc.c"
+
+//Global cap switch because I'm cringe
+#include "capswitch/model.inc.c"
+#include "capswitch/collision.inc.c"

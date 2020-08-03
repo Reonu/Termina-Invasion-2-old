@@ -112,6 +112,9 @@ const LevelScript level_main_scripts_entry[] = {
     LOAD_MODEL_FROM_GEO(MODEL_EXPLOSION,               explosion_geo),
     LOAD_MODEL_FROM_GEO(MODEL_DIRT_ANIMATION,          dirt_animation_geo),
     LOAD_MODEL_FROM_GEO(MODEL_CARTOON_STAR,            cartoon_star_geo),
+    LOAD_MODEL_FROM_DL(0xFF,                          cap_switch_exclamation_seg5_dl_05002E00, LAYER_ALPHA),
+    LOAD_MODEL_FROM_GEO(0xFE,                          cap_switch_geo),
+    LOAD_MODEL_FROM_DL(0xFD,                          cap_switch_base_seg5_dl_05003120,        LAYER_OPAQUE),
     FREE_LEVEL_POOL(),
     CALL(/*arg*/ 0, /*func*/ lvl_init_from_save_file),
     LOOP_BEGIN(),
@@ -256,9 +259,7 @@ const LevelScript script_func_global_8[] = {
 };
 
 const LevelScript script_func_global_9[] = {
-    LOAD_MODEL_FROM_DL( MODEL_CAP_SWITCH_EXCLAMATION,  cap_switch_exclamation_seg5_dl_05002E00, LAYER_ALPHA),
-    LOAD_MODEL_FROM_GEO(MODEL_CAP_SWITCH,              cap_switch_geo),
-    LOAD_MODEL_FROM_DL( MODEL_CAP_SWITCH_BASE,         cap_switch_base_seg5_dl_05003120,        LAYER_OPAQUE),
+
     RETURN(),
 };
 
