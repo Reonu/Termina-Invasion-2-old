@@ -1,4 +1,4 @@
-void scroll_bob_dl_Termina_mesh_vtx_39() {
+void scroll_bob_dl_Termina_mesh_vtx_35() {
 	int i = 0;
 	int count = 4;
 	int width = 32 * 0x20;
@@ -6,7 +6,7 @@ void scroll_bob_dl_Termina_mesh_vtx_39() {
 
 	static int currentX = 0;
 	int deltaX;
-	Vtx *vertices = segmented_to_virtual(bob_dl_Termina_mesh_vtx_39);
+	Vtx *vertices = segmented_to_virtual(bob_dl_Termina_mesh_vtx_35);
 
 	deltaX = (int)(0.05000000074505806 * 0x20) % width;
 
@@ -153,7 +153,7 @@ void scroll_bob_dl_Sea_mesh_vtx_0() {
 
 }
 void scroll_bob() {
-	scroll_bob_dl_Termina_mesh_vtx_39();
+	scroll_bob_dl_Termina_mesh_vtx_35();
 	scroll_bob_dl_Fountain_mesh_vtx_0();
 	scroll_bob_dl_Fountain_001_mesh_vtx_2();
 	scroll_bob_dl_FountainWater_mesh_vtx_0();
