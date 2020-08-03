@@ -1887,6 +1887,7 @@ void init_mario(void) {
 }
 
 void init_mario_from_save_file(void) {
+    save_file_set_coins();
     gMarioState->unk00 = 0;
     gMarioState->flags = 0;
     gMarioState->action = 0;

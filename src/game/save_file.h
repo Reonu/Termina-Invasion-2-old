@@ -9,7 +9,7 @@
 #include "course_table.h"
 
 #define EEPROM_SIZE 0x200
-#define NUM_SAVE_FILES 4
+#define NUM_SAVE_FILES 2
 
 struct SaveBlockSignature
 {
@@ -34,6 +34,9 @@ struct SaveFile
     u8 courseStars[COURSE_COUNT];
 
     u8 courseCoinScores[COURSE_STAGES_COUNT];
+
+    u16 globalCoins;
+    u16 maxGlobalCoins;
 
     struct SaveBlockSignature signature;
 };

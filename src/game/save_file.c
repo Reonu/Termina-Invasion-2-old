@@ -542,6 +542,15 @@ void save_file_set_cap_pos(s16 x, s16 y, s16 z) {
     save_file_set_flags(SAVE_FLAG_CAP_ON_GROUND);
 }
 
+void save_file_set_coins() {
+    struct SaveFile *saveFile = &gSaveBuffer.files[gCurrSaveFileNum - 1][0];
+    saveFile->globalCoins = gMarioState->numGlobalCoins;
+}
+void save_file_get_coins() {
+    struct SaveFile *saveFile = &gSaveBuffer.files[gCurrSaveFileNum - 1][0];
+    gMarioState->numGlobalCoins = saveFile->globalCoins;
+}
+
 s32 save_file_get_cap_pos(Vec3s capPos) {
     struct SaveFile *saveFile = &gSaveBuffer.files[gCurrSaveFileNum - 1][0];
     s32 flags = save_file_get_flags();

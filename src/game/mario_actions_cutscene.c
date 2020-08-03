@@ -594,6 +594,9 @@ s32 act_debug_free_move(struct MarioState *m) {
 // star dance handler
 void general_star_dance_handler(struct MarioState *m, s32 isInWater) {
     s32 dialogID;
+
+    save_file_set_coins();
+
     if (m->actionState == 0) {
         switch (++m->actionTimer) {
             case 1:
