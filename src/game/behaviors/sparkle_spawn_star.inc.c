@@ -21,7 +21,7 @@ void bhv_spawned_star_init(void) {
     if (!(o->oInteractionSubtype & INT_SUBTYPE_NO_EXIT))
         o->oBehParams = o->parentObj->oBehParams;
     starId = (o->oBehParams >> 24) & 0xFF;
-    currentLevelStarFlags = save_file_get_star_flags(gCurrSaveFileNum - 1, (starId/7));
+    currentLevelStarFlags = save_file_get_star_flags(gCurrSaveFileNum - 1, (starId/7) - 1);
     sp24 = (o->oBehParams >> 24) & 0xFF;
     if (currentLevelStarFlags & (1 << (starId % 7))) {
         cur_obj_set_model(MODEL_TRANSPARENT_STAR);
