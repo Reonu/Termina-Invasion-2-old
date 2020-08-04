@@ -11,17 +11,19 @@ static struct ObjectHitbox sCollectStarHitbox = {
     /* hurtboxRadius:     */ 0,
     /* hurtboxHeight:     */ 0,
 };
+extern u8 gUncollectedStarsInArea;
 
 void bhv_collect_star_init(void) {
     s8 starId;
     u8 currentLevelStarFlags;
 
     starId = (o->oBehParams >> 24) & 0xFF;
-    currentLevelStarFlags = save_file_get_star_flags(gCurrSaveFileNum - 1, (starId/7) - 1);
+    currentLevelStarFlags = save_file_get_star_flags(gCurrSaveFileNum - 1, (starId/7));
    if (currentLevelStarFlags & (1 << (starId % 7))) {
         o->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_TRANSPARENT_STAR];
     } else {
         o->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_STAR];
+        gUncollectedStarsInArea++;
     }
 
     obj_set_hitbox(o, &sCollectStarHitbox);
@@ -144,7 +146,7 @@ void spawn_no_exit_star(f32 sp20, f32 sp24, f32 sp28) {
 void bhv_hidden_red_coin_star_init(void) {
     s16 sp36;
     struct Object *sp30;
-
+    gUncollectedStarsInArea++;
     if (gCurrCourseNum != COURSE_JRB)
         spawn_object(o, MODEL_TRANSPARENT_STAR, bhvRedCoinStarMarker);
 
@@ -171,6 +173,7 @@ void bhv_hidden_red_coin_star_loop(void) {
             if (o->oTimer > 2) {
                 spawn_red_coin_cutscene_star(o->oPosX, o->oPosY, o->oPosZ);
                 spawn_mist_particles();
+                gUncollectedStarsInArea--;
                 o->activeFlags = ACTIVE_FLAG_DEACTIVATED;
             }
             break;

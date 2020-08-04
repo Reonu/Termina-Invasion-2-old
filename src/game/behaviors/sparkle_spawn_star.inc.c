@@ -12,13 +12,20 @@ struct ObjectHitbox sSparkleSpawnStarHitbox = {
     /* hurtboxHeight: */ 0,
 };
 
-void bhv_spawned_star_init(void) {
+void bhv_spawned_star_init(void) { 
+    s8 starId;
+    u8 currentLevelStarFlags;
     s32 sp24;
+
+
     if (!(o->oInteractionSubtype & INT_SUBTYPE_NO_EXIT))
         o->oBehParams = o->parentObj->oBehParams;
+    starId = (o->oBehParams >> 24) & 0xFF;
+    currentLevelStarFlags = save_file_get_star_flags(gCurrSaveFileNum - 1, (starId/7));
     sp24 = (o->oBehParams >> 24) & 0xFF;
-    if (bit_shift_left(sp24) & save_file_get_star_flags(gCurrSaveFileNum - 1, gCurrCourseNum - 1))
+    if (currentLevelStarFlags & (1 << (starId % 7))) {
         cur_obj_set_model(MODEL_TRANSPARENT_STAR);
+    }
     cur_obj_play_sound_2(SOUND_GENERAL2_STAR_APPEARS);
 }
 

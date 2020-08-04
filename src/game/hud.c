@@ -21,6 +21,9 @@
  * cannon reticle, and the unused keys.
  **/
 
+u8 gUncollectedStarsInArea = 0;
+u8 sPrintDebugVariables = 0;
+
 struct PowerMeterHUD {
     s8 animation;
     s16 x;
@@ -487,5 +490,22 @@ void render_hud(void) {
         {
             print_text(10, 60, "SURFACE NODE POOL FULL");
         }
+        if (gUncollectedStarsInArea)
+        {
+            print_text(10, 10, "-");
+        }
+        if (gPlayer1Controller->buttonPressed & L_TRIG) {
+            if (sPrintDebugVariables == 0) {
+                sPrintDebugVariables = 1;
+            }
+            else {
+                sPrintDebugVariables = 0;
+            }
+        }
+        if (sPrintDebugVariables == 1) { //DEBUG: Print variables
+            print_text(30, 50, "US:");
+            print_text_fmt_int(50, 50, "%d", gUncollectedStarsInArea);
+        }
+        
     }
 }

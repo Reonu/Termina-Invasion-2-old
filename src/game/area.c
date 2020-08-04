@@ -222,10 +222,14 @@ void clear_area_graph_nodes(void) {
     }
 }
 
+extern u8 gUncollectedStarsInArea;
+
 void load_area(s32 index) {
     if (gCurrentArea == NULL && gAreaData[index].unk04 != NULL) {
         gCurrentArea = &gAreaData[index];
         gCurrAreaIndex = gCurrentArea->index;
+
+        gUncollectedStarsInArea = 0;
 
         if (gCurrentArea->terrainData != NULL) {
             load_area_terrain(index, gCurrentArea->terrainData, gCurrentArea->surfaceRooms,
