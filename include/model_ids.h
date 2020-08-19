@@ -117,6 +117,7 @@
 #define MODEL_HMC_ROCK_PIECE                   0x3A        // hmc_geo_000570 - unused
 #define MODEL_HMC_ROCK_SMALL_PIECE             0x3B        // hmc_geo_000588 - unused
 #define MODEL_HMC_RED_GRILLS                   0x3C        // hmc_geo_000530
+#define MODEL_SNOWBALL                         0x58        // CBT
 
 // ssl
 #define MODEL_SSL_PYRAMID_TOP                  0x3A        // ssl_geo_000618

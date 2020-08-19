@@ -1,13 +1,13 @@
 #include "src/game/envfx_snow.h"
 
-const GeoLayout hmc_area_2_geo[] = {
+const GeoLayout hmc_area_3_geo[] = {
 	GEO_NODE_START(),
 	GEO_OPEN_NODE(),
-		GEO_TRANSLATE_NODE_WITH_DL(LAYER_OPAQUE, -530, -2968, 307, hmc_dl_Pueblo_nieve_mesh),
+		GEO_TRANSLATE_NODE_WITH_DL(LAYER_OPAQUE, -972, 394, -9094, hmc_dl_PathToMountain_mesh),
 	GEO_CLOSE_NODE(),
 	GEO_RETURN(),
 };
-const GeoLayout hmc_area_2[] = {
+const GeoLayout hmc_area_3[] = {
 	GEO_NODE_SCREEN_AREA(10, SCREEN_WIDTH/2, SCREEN_HEIGHT/2, SCREEN_WIDTH/2, SCREEN_HEIGHT/2),
 	GEO_OPEN_NODE(),
 		GEO_ZBUFFER(0),
@@ -21,11 +21,11 @@ const GeoLayout hmc_area_2[] = {
 		GEO_OPEN_NODE(),
 			GEO_CAMERA_FRUSTUM_WITH_FUNC(45.0000, 100, 30000, geo_camera_fov),
 			GEO_OPEN_NODE(),
-				GEO_CAMERA(CAMERA_MODE_8_DIRECTIONS, 730, 2725, 37083, 730, 1425, 37083, geo_camera_main),
+				GEO_CAMERA(CAMERA_MODE_8_DIRECTIONS, 1538, 1050, 63687, 1538, -250, 63687, geo_camera_main),
 				GEO_OPEN_NODE(),
-					GEO_BRANCH(1, hmc_area_2_geo),
+					GEO_BRANCH(1, hmc_area_3_geo),
 					GEO_RENDER_OBJ(),
-					GEO_ASM(ENVFX_SNOW_BLIZZARD, geo_envfx_main),
+					GEO_ASM(ENVFX_MODE_NONE, geo_envfx_main),
 				GEO_CLOSE_NODE(),
 			GEO_CLOSE_NODE(),
 		GEO_CLOSE_NODE(),

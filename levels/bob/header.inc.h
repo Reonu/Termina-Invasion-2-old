@@ -364,7 +364,7 @@ extern Vtx bob_dl_Roof_007_mesh_vtx_3[18];
 extern Gfx bob_dl_Roof_007_mesh_tri_3[];
 extern Vtx bob_dl_Roof_008_mesh_vtx_0[6];
 extern Gfx bob_dl_Roof_008_mesh_tri_0[];
-extern Vtx bob_dl_Roof_008_mesh_vtx_1[8];
+extern Vtx bob_dl_Roof_008_mesh_vtx_1[15];
 extern Gfx bob_dl_Roof_008_mesh_tri_1[];
 extern Vtx bob_dl_Roof_008_mesh_vtx_2[8];
 extern Gfx bob_dl_Roof_008_mesh_tri_2[];

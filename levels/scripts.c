@@ -255,6 +255,7 @@ const LevelScript script_func_global_8[] = {
     LOAD_MODEL_FROM_GEO(MODEL_MR_BLIZZARD_HIDDEN,      mr_blizzard_hidden_geo),
     LOAD_MODEL_FROM_GEO(MODEL_MR_BLIZZARD,             mr_blizzard_geo),
     LOAD_MODEL_FROM_GEO(MODEL_PENGUIN,                 penguin_geo),
+    LOAD_MODEL_FROM_GEO(MODEL_SNOWBALL,                snowball_geo),
     RETURN(),
 };
 

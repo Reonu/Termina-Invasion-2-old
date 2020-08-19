@@ -20,3 +20,6 @@ UNUSED static const u64 binid_1 = 1;
 #include "snowman/anims/data.inc.c"
 #include "snowman/anims/table.inc.c"
 UNUSED static const u64 binid_2 = 2;
+
+#include "snowball/model.inc.c"
+#include "snowball/collision.inc.c"
