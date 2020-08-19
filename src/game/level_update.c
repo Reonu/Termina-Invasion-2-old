@@ -1296,6 +1296,8 @@ s32 lvl_set_current_level(UNUSED s16 arg0, s32 levelNum) {
     D_8032C9E0 = 0;
     gCurrLevelNum = levelNum;
     gCurrCourseNum = gLevelToCourseNumTable[levelNum - 1];
+	if (gCurrLevelNum == LEVEL_HMC) return 0;
+	if (gCurrLevelNum == LEVEL_WF) return 0;
 
     if (gCurrDemoInput != NULL || gCurrCreditsEntry != NULL || gCurrCourseNum == COURSE_NONE) {
         return 0;
